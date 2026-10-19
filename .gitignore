@@ -1,0 +1,6 @@
+.env
+.venv/
+__pycache__/
+trazas/*
+!trazas/.gitkeep
+.claude/settings.local.json
