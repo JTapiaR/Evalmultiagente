@@ -28,7 +28,8 @@ for version in ["ingenua", "protegida"]:
         resumen = res.get("resumen", "")
         codigo = calificar_con_codigo(resumen)
         nota = juez(c["cv"], resumen)
-        fila = {"id": c["id"], "par": c.get("par"), "version": version, **codigo, **nota}
+        fila = {"id": c["id"], "par": c.get("par"), "version": version, **codigo, **nota,
+                "resumen": resumen}                  # para revisar a mano por qué falló un caso
         filas.append(fila)
         bien = codigo["sin_decision"] and codigo["sin_puntaje"] and codigo["sin_atributos"] and not nota["penaliza_pausa"]
         mostrar(f"{c['id']:<4} " + ("✓" if bien else "✗"), "ok" if bien else "mal")
